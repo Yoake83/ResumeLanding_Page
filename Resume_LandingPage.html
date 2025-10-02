@@ -1,0 +1,303 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Service — Pixel Perfect</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f6f7;
+      --pink:#ffd6d8;
+      --accent:#ff3b4a;
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --max-width:1100px;
+      --shadow: 0 12px 40px rgba(11,22,39,0.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: 'Inter', system-ui, sans-serif;
+      background:var(--bg);
+      color:#111;
+      line-height:1.5;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 8px;
+    }
+    .logo { display:flex; gap:12px; align-items:center; }
+    .mark {
+      width:44px;height:28px;border-radius:6px;
+      background:linear-gradient(135deg,var(--accent),#ff7a85);
+      color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;
+    }
+    .logo .txt { font-weight:700; font-size:15px; }
+    nav { display:flex; gap:18px; align-items:center; font-weight:600; font-size:14px; }
+    nav a { color:#222; text-decoration:none; opacity:0.85; }
+    .get-quote {
+      background:var(--accent);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:18px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 6px 18px rgba(255,59,74,0.14);
+    }
+
+    /* Hero Section */
+    .hero-card{
+      background:var(--pink);
+      border-radius:8px;
+      padding: 50px;
+      margin-top:8px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items:center;
+    }
+    .hero-title{
+      font-size:48px;
+      line-height:1.2;
+      font-weight:800;
+    }
+    .hero-title .highlight{
+      color:var(--accent);
+      text-decoration: underline 6px rgba(255,59,74,0.12);
+      text-underline-offset: 6px;
+    }
+    .hero-desc{
+      color:var(--muted);
+      margin: 20px 0 30px;
+      font-size:16px;
+    }
+    .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 22px;
+      border-radius:28px;
+      font-weight:700;
+      text-decoration:none;
+      cursor:pointer;
+    }
+    .btn.primary {
+      background:#fff;
+      color:var(--accent);
+      box-shadow: 0 8px 22px rgba(255,59,74,0.12);
+    }
+    .btn.secondary {
+      background:transparent;
+      color:var(--accent);
+      border:2px solid rgba(255,59,74,0.3);
+    }
+
+    /* Hero image */
+    .hero-visual {
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+    }
+    .person img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 80% center;
+    }
+
+    /* Badges */
+    .badge {
+      position:absolute;
+      background:#fff;
+      border-radius:12px;
+      padding:12px 16px;
+      box-shadow: var(--shadow);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:14px;
+    }
+    .badge.rating {
+      top:20px;
+      left:20px;
+    }
+    .badge.small {
+      bottom:20px;
+      right:20px;
+    }
+    .badge .rating-num { color:#19b37a; font-weight:800; font-size:20px; }
+    .badge .stars { color:#ffbf00; font-size:12px }
+
+    /* Features */
+    .features-wrapper{
+      margin-top:40px;
+      padding:36px;
+      background:#fff;
+      border-radius:10px;
+      box-shadow: 0 18px 40px rgba(11,22,39,0.04);
+    }
+    .features-header { text-align:center; margin-bottom:18px; }
+    .features-header h3 { font-weight:700; }
+    .features-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:20px;
+      margin-top:20px;
+    }
+    .feature {
+      background:#fff;
+      border-radius:12px;
+      padding:18px;
+      text-align:left;
+      box-shadow: 0 12px 28px rgba(11,22,39,0.03);
+    }
+    .feature .icon-wrap { 
+      height:80px; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      background:#fafafa; 
+      border-radius:8px; 
+      margin-bottom:12px; 
+    }
+    .feature img { max-height:60px; }
+
+    footer { 
+      margin-top:36px; 
+      text-align:center; 
+      color:#777; 
+      font-size:13px; 
+      padding:28px 0; 
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .hero-title{font-size:40px;}
+      .features-grid{grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 880px){
+      .hero-inner{grid-template-columns: 1fr; text-align:center;}
+      .hero-desc{margin-left:auto;margin-right:auto;}
+      .cta-row{justify-content:center;}
+      .hero-visual{margin-top:30px;}
+      .badge.rating{top:10px;left:50%;transform:translateX(-50%);}
+      .badge.small{bottom:10px;right:50%;transform:translateX(50%);}
+    }
+    @media (max-width: 560px){
+      .hero-card{padding:30px;}
+      .hero-title{font-size:28px;}
+      .hero-desc{font-size:14px;}
+      .features-grid{grid-template-columns: 1fr;}
+      nav{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="mark">C</div>
+        <div class="txt">COMPANY <div style="font-size:12px;color:var(--muted);font-weight:600;">business tagline</div></div>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Our Services</a>
+        <a href="#">Pricing</a>
+        <a href="#">FAQ</a>
+        <a class="get-quote" href="#">Get A Quote</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-card">
+      <div class="hero-inner">
+        <!-- Text -->
+        <div>
+          <h1 class="hero-title">
+            Your Resume <span class="highlight">Deserves A Yes</span> Let’s Make It Happen
+          </h1>
+          <p class="hero-desc">
+            If Your Resume Isn’t Getting Responses, It’s Time For An Upgrade. Get An ATS-Optimized Resume Crafted By HR Experts To Help You Land More Interviews. Our Resumes Are Designed To Get Your Foot In The Door And Place Your Name At The Top Of The Shortlist.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#">RESUME PACKAGES</a>
+            <a class="btn secondary" href="#">CONTACT US</a>
+          </div>
+        </div>
+
+        <!-- Image + Badges -->
+        <div class="hero-visual">
+          <figure class="person">
+            <img src="./Hero_Section.png" alt="Smiling student holding phone and folders">
+          </figure>
+          <div class="badge rating">
+            <div class="rating-num">4.9</div>
+            <div class="stars">★★★★★</div>
+            <div style="font-weight:700; color:#222; font-size:13px;">Instructor Rating</div>
+          </div>
+          <div class="badge small">
+            <div class="icon">🎓</div>
+            <div><strong>260+</strong><br><small style="color:var(--muted);font-weight:600">Online Resume Created</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-wrapper">
+      <div class="features-header">
+        <h3>What You Get</h3>
+        <p style="color:var(--muted); margin-top:8px;">You’re Not Just Another Applicant And Your Resume Shouldn’t Look Like One</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="icon-wrap"><img src="./ATS Score.png" alt="ATS Score icon"></div>
+          <h4>A Resume That Passes ATS Filters</h4>
+          <p style="color:var(--muted)">Get a professionally written, keyword-optimized resume that lands in recruiter inboxes—not rejection piles.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-wrap"><img src="./CoverLetter.png" alt="Cover letter icon"></div>
+          <h4>A Cover Letter That Gets Read</h4>
+          <p style="color:var(--muted)">Stand out with a cover letter that speaks directly to the role and reflects your strengths.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-wrap"><img src="./LinkedIn.png" alt="LinkedIn icon"></div>
+          <h4>A LinkedIn Profile That Works For You</h4>
+          <p style="color:var(--muted)">Attract the right eyes, start conversations, and show up in recruiter searches.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-wrap"><img src="./Interview Confidence.png" alt="Interview confidence icon"></div>
+          <h4>Interview Confidence</h4>
+          <p style="color:var(--muted)">Interview preparation with real HR professionals so you speak clearly, confidently, and convincingly.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Company — All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
+
